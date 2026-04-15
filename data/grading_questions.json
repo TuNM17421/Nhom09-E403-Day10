@@ -1,0 +1,80 @@
+[
+  {
+    "id": "gq_d10_01",
+    "question": "Theo policy hoàn tiền nội bộ, khách có tối đa bao nhiêu ngày làm việc để gửi yêu cầu hoàn tiền sau khi đơn được xác nhận?",
+    "must_contain_any": ["7"],
+    "must_not_contain": ["14 ngày làm việc"],
+    "grading_criteria": [
+      "Trả lời đúng số ngày (7 ngày làm việc hoặc tương đương)",
+      "Không khẳng định 14 ngày là chính sách hiện hành"
+    ]
+  },
+  {
+    "id": "gq_d10_02",
+    "question": "Ticket P1: thời gian resolution SLA là bao nhiêu giờ?",
+    "must_contain_any": ["4 giờ", "4h"],
+    "must_not_contain": [],
+    "grading_criteria": ["Nêu đúng resolution 4 giờ (hoặc tương đương trong tài liệu)"]
+  },
+  {
+    "id": "gq_d10_03",
+    "question": "Theo chính sách nghỉ phép hiện hành (2026), nhân viên dưới 3 năm kinh nghiệm được bao nhiêu ngày phép năm?",
+    "must_contain_any": ["12 ngày", "12 ngày phép năm"],
+    "must_not_contain": ["10 ngày phép năm"],
+    "expect_top1_doc_id": "hr_leave_policy",
+    "grading_criteria": [
+      "Nêu đúng 12 ngày (hoặc tương đương trong chunk HR 2026)",
+      "Không khẳng định 10 ngày phép năm là chính sách hiện hành",
+      "Ưu tiên chunk đúng doc_id ở top-1 (ranking / versioning)"
+    ]
+  },
+  {
+    "id": "gq_d10_04",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai liên tiếp?",
+    "must_contain_any": ["5 lần"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng 5 lần đăng nhập sai liên tiếp"]
+  },
+  {
+    "id": "gq_d10_05",
+    "question": "Định kỳ bao lâu thì người dùng cần phải thay đổi mật khẩu?",
+    "must_contain_any": ["90 ngày"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng chu kỳ 90 ngày thay đổi mật khẩu"]
+  },
+  {
+    "id": "gq_d10_06",
+    "question": "Mỗi tài khoản được kết nối VPN trên tối đa bao nhiêu thiết bị cùng lúc?",
+    "must_contain_any": ["2 thiết bị"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng giới hạn 2 thiết bị kết nối VPN"]
+  },
+  {
+    "id": "gq_d10_07",
+    "question": "Dung lượng tiêu chuẩn của hộp thư điện tử công ty là bao nhiêu?",
+    "must_contain_any": ["50GB", "50 GB"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng dung lượng hòm thư 50GB"]
+  },
+  {
+    "id": "gq_d10_08",
+    "question": "Khi có sự cố khẩn cấp (Emergency) ngoài giờ làm việc, cần liên lạc hotline số máy lẻ nào?",
+    "must_contain_any": ["9999"],
+    "must_not_contain": ["9000"],
+    "grading_criteria": ["Xác nhận đúng số máy lẻ khẩn cấp 9999"]
+  },
+  {
+    "id": "gq_d10_09",
+    "question": "Phần mềm VPN chính thức mà công ty đang sử dụng là gì?",
+    "must_contain_any": ["Cisco AnyConnect"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng tên phần mềm Cisco AnyConnect"]
+  },
+  {
+    "id": "gq_d10_10",
+    "question": "SLA phản hồi ban đầu của ticket P1 (IT) là bao lâu?",
+    "must_contain_any": ["15 phút"],
+    "must_not_contain": [],
+    "grading_criteria": ["Xác nhận đúng 15 phút phản hồi cho ticket P1"]
+  }
+]
