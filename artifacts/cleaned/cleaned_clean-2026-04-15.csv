@@ -1,0 +1,12 @@
+chunk_id,doc_id,chunk_text,effective_date,exported_at
+policy_refund_v4_1_3b11f30cc4b49d25,policy_refund_v4,Yêu cầu được gửi trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng.,2026-02-01,2026-04-10T08:00:00
+policy_refund_v4_2_3a87922fb9e57ad9,policy_refund_v4,Yêu cầu hoàn tiền được chấp nhận trong vòng 7 ngày làm việc kể từ xác nhận đơn. [cleaned: stale_refund_window],2026-02-01,2026-04-10T08:00:00
+sla_p1_2026_3_f80344c79d526d04,sla_p1_2026,Yêu cầu hỗ trợ P1 có SLA phản hồi ban đầu 15 phút và resolution trong 4 giờ.,2026-02-01,2026-04-10T08:00:00
+it_helpdesk_faq_4_ba09094c6802344b,it_helpdesk_faq,Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp.,2026-02-01,2026-04-10T08:00:00
+hr_leave_policy_5_818ac82ac90f32fc,hr_leave_policy,Nhân viên dưới 3 năm kinh nghiệm được 12 ngày phép năm theo chính sách 2026.,2026-02-01,2026-04-10T08:00:00
+it_helpdesk_faq_6_76d38c1b20d4459f,it_helpdesk_faq,FAQ bổ sung: đổi mật khẩu qua portal self-service có thể mất tối đa 24 giờ để đồng bộ toàn hệ thống.,2026-02-01,2026-04-10T08:00:00
+policy_refund_v4_7_79170fa3357abd9f,policy_refund_v4,﻿Hoàn tiền chỉ áp dụng cho đơn hàng có giá trị trên 100.000 VND và đã thanh toán đầy đủ.,2026-02-01,2026-04-10T08:00:00
+it_helpdesk_faq_8_bf8a23cbb2b4a41f,it_helpdesk_faq,"Khi cần hỗ trợ ngoài giờ làm việc, liên hệ hotline ext. 9999 để được kết nối với kỹ sư trực ca.",2026-01-20,
+sla_p1_2026_9_a6641976afd26357,sla_p1_2026,"Quy trình xử lý sự cố P1 bao gồm các bước sau: Bước 1 — Tiếp nhận và xác nhận severity trong 5 phút. Bước 2 — Gửi thông báo tới Slack #incident-p1 và email incident@company.internal ngay lập tức. Bước 3 — Lead Engineer phân công engineer xử lý trong 10 phút. Bước 4 — Engineer cập nhật tiến độ lên yêu cầu hỗ trợ mỗi 30 phút và nếu cần hỗ trợ thêm thì escalate ngay lập tức lên Senior Engineer hoặc Engineering Manager. Bước 5 — Sau khi khắc phục xong, engineer viết incident report trong vòng 24 giờ bao gồm root cause analysis, timeline, và action items để ngăn chặn sự cố tương tự trong tương lai.",2026-02-01,2026-04-10T08:00:00
+sla_p1_2026_10_a5445c2010a094aa,sla_p1_2026,Yêu cầu hỗ trợ P2 có SLA phản hồi ban đầu 2 giờ và resolution trong 1 ngày làm việc.,2026-02-01,2026-04-10T08:00:00
+it_helpdesk_faq_11_19440d5da759eefd,it_helpdesk_faq,Mỗi tài khoản VPN được kết nối trên tối đa 2 thiết bị cùng lúc.,2026-01-20,2026-04-10T08:00:00

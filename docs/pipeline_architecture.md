@@ -1,44 +1,55 @@
-# Kiến trúc pipeline — Lab Day 10
+# Pipeline Architecture — Lab Day 10
 
-**Nhóm:** _______________  
-**Cập nhật:** _______________
+Hệ thống xử lý dữ liệu cho RAG Knowledge Base với kiến trúc phân tầng đảm bảo tính quan sát được (Observability).
 
 ---
 
-## 1. Sơ đồ luồng (bắt buộc có 1 diagram: Mermaid / ASCII)
+## 1. Sơ đồ luồng (Flow)
 
+```text
+[Raw CSV] -> (Ingest) -> [Log Raw]
+                          |
+                          v
+[Cleaning Rules] <--- (Transform) ---> [Quarantine CSV]
+                          |
+                          v
+[Expectations] <----- (Validation) ---> [Halt / Continue]
+                          |
+                          v
+[Cleaned CSV] ------> (Embed - ChromaDB)
+                          |
+                          v
+[Manifest JSON] <--- (Metadata)
+                          |
+                          v
+(Freshness Check) ---> [PASS/WARN/FAIL]
 ```
-raw export (CSV/API/…)  →  clean  →  validate (expectations)  →  embed (Chroma)  →  serving (Day 08/09)
-```
-
-> Vẽ thêm: điểm đo **freshness**, chỗ ghi **run_id**, và file **quarantine**.
 
 ---
 
-## 2. Ranh giới trách nhiệm
+## 2. Các tầng xử lý (Boundaries)
 
-| Thành phần | Input | Output | Owner nhóm |
-|------------|-------|--------|--------------|
-| Ingest | … | … | … |
-| Transform | … | … | … |
-| Quality | … | … | … |
-| Embed | … | … | … |
-| Monitor | … | … | … |
+### Ingestion (Nhập dữ liệu)
+- Đọc dữ liệu từ nguồn xuất thô (`policy_export_dirty.csv`).
+- Ghi nhận `raw_records` để kiểm soát số lượng đầu vào.
 
----
+### Transformation & Cleaning (Làm sạch)
+- Tách biệt dữ liệu "Sạch" và dữ liệu "Cách ly" (Quarantine).
+- Thực hiện chuẩn hóa ngày tháng, xóa ghi chú rác, nhất quán thuật ngữ IT.
+- Cơ chế sửa lỗi tự động (Fix rule) cho các chính sách quan trọng (ví dụ: hoàn tiền 7 ngày).
 
-## 3. Idempotency & rerun
+### Validation (Kiểm định)
+- Chặn đứng các bản ghi không đạt chuẩn (Expectation Halt).
+- Kiểm tra tính nhất quán và độ dài nội dung.
 
-> Mô tả: upsert theo `chunk_id` hay strategy khác? Rerun 2 lần có duplicate vector không?
-
----
-
-## 4. Liên hệ Day 09
-
-> Pipeline này cung cấp / làm mới corpus cho retrieval trong `day09/lab` như thế nào? (cùng `data/docs/` hay export riêng?)
+### Publishing & Embedding (Phát hành)
+- Upsert vào ChromaDB bằng `chunk_id` ổn định.
+- Cơ chế **Prune**: Tự động xóa các vector cũ không còn tồn tại trong bản phát hành mới nhất để đảm bảo tính đồng bộ (Snapshot consistency).
 
 ---
 
-## 5. Rủi ro đã biết
+## 3. Thành phần giám sát (Observability)
 
-- …
+- **Log Run ID**: Mọi lượt chạy đều có ID duy nhất gắn với dấu thời gian.
+- **Manifest**: Lưu trữ trạng thái cuối cùng của lần chạy, bao gồm các chỉ số quan trọng và thông tin Vector Store.
+- **Freshness**: Kiểm tra độ trễ dữ liệu dựa trên tệp Manifest và SLA cấu hình.

@@ -35,4 +35,4 @@
 ## 4. Phiên bản & canonical
 
 - **Source of truth**: Chính sách hoàn tiền phiên bản 4 (`policy_refund_v4`) là nguồn chuẩn. Bất kỳ chunk nào chứa "14 ngày làm việc" sẽ bị tự động sửa thành "7 ngày làm việc" để đồng bộ với v4.
-- **HR Policy**: Chỉ chấp nhận bản ghi có `effective_date` từ `2026-01-01`.
+- **HR Policy**: Chỉ chấp nhận bản ghi có `effective_date` từ `2026-01-01`. 
