@@ -115,6 +115,18 @@ def clean_rows(
             quarantine.append({**raw, "reason": "missing_chunk_text"})
             continue
 
+        # Rule mới 1: Xóa ghi chú trong ngoặc (...) hoặc [...] (Metadata notes) - Xử lý cả dấu chấm cuối câu
+        text = re.sub(r"\s*[\(\[].*?[\)\]][\.\s]*$", ".", text).strip()
+        if text.endswith(".."): text = text[:-1] # Tránh hai dấu chấm
+
+        # Rule mới 2: Chuẩn hóa thuật ngữ IT (Ticket -> Yêu cầu hỗ trợ)
+        if doc_id in ["it_helpdesk_faq", "sla_p1_2026"]:
+            text = text.replace("Ticket", "Yêu cầu hỗ trợ")
+            text = text.replace("ticket", "yêu cầu hỗ trợ")
+
+        # Rule mới 3: Xóa khoảng trắng thừa bên trong văn bản
+        text = re.sub(r"\s+", " ", text).strip()
+
         key = _norm_text(text)
         if key in seen_text:
             quarantine.append({**raw, "reason": "duplicate_chunk_text"})
