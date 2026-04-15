@@ -9,3 +9,13 @@ chunk_id,doc_id,chunk_text,effective_date,exported_at
 8,hr_leave_policy,"Nhân viên dưới 3 năm kinh nghiệm được 12 ngày phép năm theo chính sách 2026.",2026-02-01,2026-04-10T08:00:00
 9,legacy_catalog_xyz_zzz,"Chunk nội dung đủ dài để vượt ngưỡng expectation độ dài tối thiểu trong cleaned export.",2026-02-01,2026-04-10T08:00:00
 10,it_helpdesk_faq,"FAQ bổ sung: đổi mật khẩu qua portal self-service có thể mất tối đa 24 giờ để đồng bộ toàn hệ thống.",01/02/2026,2026-04-10T08:00:00
+11,policy_refund_v4,"﻿Hoàn tiền chỉ áp dụng cho đơn hàng có giá trị trên 100.000 VND và đã thanh toán đầy đủ.",2026-02-01,2026-04-10T08:00:00
+12,it_helpdesk_faq,"Khi cần hỗ trợ ngoài giờ làm việc, liên hệ hotline ext. 9999 để được kết nối với kỹ sư trực ca.",2026-01-20,
+13,sla_p1_2026,"Quy trình xử lý sự cố P1 bao gồm các bước sau: Bước 1 — Tiếp nhận và xác nhận severity trong 5 phút. Bước 2 — Gửi thông báo tới Slack #incident-p1 và email incident@company.internal ngay lập tức. Bước 3 — Lead Engineer phân công engineer xử lý trong 10 phút. Bước 4 — Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm thì escalate ngay lập tức lên Senior Engineer hoặc Engineering Manager. Bước 5 — Sau khi khắc phục xong, engineer viết incident report trong vòng 24 giờ bao gồm root cause analysis, timeline, và action items để ngăn chặn sự cố tương tự trong tương lai.",2026-02-01,2026-04-10T08:00:00
+14,hr_leave_policy,"Nhân viên dưới 3 năm kinh nghiệm được 12 ngày phép năm theo chính sách 2026.",2026-02-01,2026-04-10T08:00:00
+15,sla_p1_2026,"Ticket P2 có SLA phản hồi ban đầu 2 giờ và resolution trong 1 ngày làm việc.",2026-02-01,2026-04-10T08:00:00
+16,policy_refund_v4,"Hoàn tiền qua store credit có giá trị 110% so với số tiền hoàn gốc.",Feb 2026,2026-04-10T08:00:00
+17,it_helpdesk_faq,"Mỗi tài khoản VPN được kết nối trên tối đa 2 thiết bị cùng lúc.",2026-01-20,2026-04-10T08:00:00
+18,hr_leave_policy,"Nhân viên dưới 3 năm kinh nghiệm được 10 ngày phép năm (bản HR 2025).",2025-06-15,2026-04-10T08:00:00
+19,internal_memo_2025,"Thông báo nội bộ: lịch nghỉ Tết Nguyên Đán 2026 sẽ được công bố trước ngày 15/12/2025.",2025-12-01,2026-04-10T08:00:00
+20,sla_p1_2026,"",,2026-04-10T08:00:00
