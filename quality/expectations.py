@@ -112,5 +112,32 @@ def run_expectations(cleaned_rows: List[Dict[str, Any]]) -> Tuple[List[Expectati
         )
     )
 
+    # E7: Giới hạn độ dài tối đa của chunk (max 500 ký tự)
+    long_chunks = [r for r in cleaned_rows if len(r.get("chunk_text", "")) > 500]
+    results.append(
+        ExpectationResult(
+            "max_chunk_length_500",
+            len(long_chunks) == 0,
+            "warn",
+            f"long_chunks={len(long_chunks)}",
+        )
+    )
+
+    # E8: Không chứa các từ khóa nghi vấn (TODO, FIXME, MISSING)
+    forbidden_keywords = ["TODO", "FIXME", "MISSING"]
+    suspicious_rows = [
+        r
+        for r in cleaned_rows
+        if any(kw in r.get("chunk_text", "").upper() for kw in forbidden_keywords)
+    ]
+    results.append(
+        ExpectationResult(
+            "no_suspicious_placeholders",
+            len(suspicious_rows) == 0,
+            "halt",
+            f"suspicious_rows={len(suspicious_rows)}",
+        )
+    )
+
     halt = any(not r.passed and r.severity == "halt" for r in results)
     return results, halt
