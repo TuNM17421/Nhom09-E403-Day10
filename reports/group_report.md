@@ -4,10 +4,10 @@
 **Thành viên:**
 | Tên | Vai trò (Day 10) | Email |
 |-----|------------------|-------|
-| Nguyễn Văn A | Ingestion / Raw Owner | a.nv@example.com |
-| Trần Thị B | Cleaning & Quality Owner | b.tt@example.com |
-| Lê Văn C | Embed & Idempotency Owner | c.lv@example.com |
-| Phạm Thị D | Monitoring / Docs Owner | d.pt@example.com |
+| Hoàng Sơn Lâm | Ingestion / Raw Owner | hoangsonlamwk4@gmail.com |
+| Lê Tuấn Đạt | Cleaning & Quality Owner | letuandat220@gmail.com |
+| Nguyễn Mạnh Tú | Embed & Idempotency Owner | tunm17421@gmail.com |
+| Lưu Linh Ly | Monitoring / Docs Owner | linhluuly.work@gmail.com |
 
 **Ngày nộp:** 2026-04-15  
 **Repo:** `Nhom09-E403-Day10`  
@@ -53,32 +53,34 @@ Khi chạy với cờ `--no-refund-fix`, kiểm định `refund_no_stale_14d_win
 
 ## 3. Before / after ảnh hưởng retrieval hoặc agent (200–250 từ)
 
-Chúng tôi đã thực hiện "tiêm lỗi" (corruption inject) bằng cách bỏ qua quy tắc sửa lỗi hoàn tiền để so sánh kết quả retrieval.
+> Bắt buộc: inject corruption (Sprint 3) — mô tả + dẫn `artifacts/eval/…` hoặc log.
 
 **Kịch bản inject:**
-Chạy pipeline với `--no-refund-fix`. Kết quả là bản ghi "Yêu cầu hoàn tiền trong 14 ngày" được đẩy vào Vector Store thay vì bản ghi "7 ngày" đã được sửa.
 
-**Kết quả định lượng:**
-- **Kịch bản Xấu (`inject-bad`)**: Câu hỏi `q_refund_window` trả về kết quả sai (14 ngày). Cột `hits_forbidden` trong file `after_inject_bad.csv` báo **yes**, cho thấy RAG đã truy xuất trúng nội dung lỗi.
-- **Kịch bản Tốt (`after_fix`)**: Câu hỏi tương tự trả về kết quả đúng (7 ngày). Cột `hits_forbidden` báo **no**, chứng minh dữ liệu sạch đã loại bỏ hoàn toàn các thông tin gây nhiễu.
-- **Kết luận**: Pipeline làm sạch giúp cải thiện độ chính xác của câu trả lời từ Agent, tránh cung cấp thông tin chính sách cũ cho khách hàng.
+_________________
+
+**Kết quả định lượng (từ CSV / bảng):**
+
+_________________
 
 ---
 
 ## 4. Freshness & monitoring (100–150 từ)
 
-Chúng tôi thiết lập SLA Freshness là **24 giờ**. Kết quả chạy trên dữ liệu mẫu báo `FAIL` vì thời gian xuất dữ liệu (`exported_at`) là từ 5 ngày trước. Điều này giúp đội vận hành biết rằng dữ liệu trong Knowledge Base hiện tại không còn phản ánh đúng trạng thái thực tế nhất của hệ thống nguồn và cần được cập nhật ngay lập tức.
+> SLA bạn chọn, ý nghĩa PASS/WARN/FAIL trên manifest mẫu.
+
+_________________
 
 ---
 
 ## 5. Liên hệ Day 09 (50–100 từ)
 
-Dữ liệu sau khi làm sạch được lưu vào collection `day10_kb`. Collection này hoàn toàn có thể được tích hợp vào Agent hỗ trợ khách hàng từ Day 09 bằng cách thay đổi cấu hình nguồn dữ liệu. Việc làm sạch ở tầng dữ liệu (Day 10) giúp các Agent ở tầng trên (Day 09) hoạt động ổn định hơn mà không cần phải tự xử lý các ngoại lệ về định dạng hay lỗi phiên bản.
+> Dữ liệu sau embed có phục vụ lại multi-agent Day 09 không? Nếu có, mô tả tích hợp; nếu không, giải thích vì sao tách collection.
+
+_________________
 
 ---
 
 ## 6. Rủi ro còn lại & việc chưa làm
 
-- Chưa có cơ chế tự động cảnh báo qua Slack/Email (mới chỉ ghi log `alert_channel`).
-- Các quy tắc làm sạch text mới chỉ dừng ở mức dùng Regex đơn giản, có thể gặp khó khăn với các cấu trúc văn bản phức tạp hơn.
-- Cần mở rộng bộ đánh giá retrieval (Golden Dataset) lên nhiều câu hỏi hơn để bao phủ hết các trường hợp biên.
+- …
