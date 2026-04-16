@@ -4,6 +4,7 @@
 **Vai trò:** Embed Owner & Team Coordinator  
 **Ngày nộp:** 2026-04-15  
 **Độ dài:** ~550 từ
+**Repo bài cá nhân**: https://github.com/GDGoC-FPTU/data-pipeline-observability-TuNM17421
 
 ---
 
